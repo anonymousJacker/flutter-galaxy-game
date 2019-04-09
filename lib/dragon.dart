@@ -11,11 +11,11 @@ class Dragon extends SpriteComponent {
   double maxY;
 
   Dragon(this.dimenstions, this.postion, this.ypostion)
-      : super.square(DRAGON_SIZE, 'dragon.png');
+      : super.square(DRAGON_SIZE, 'bubble.jpeg');
 
   @override
   void update(double t) {
-    y += gameOver ? 0 : (t * DRAGONSPEED);
+    y -= gameOver ? 0 : (t * DRAGONSPEED);
   }
 
   @override
@@ -26,7 +26,7 @@ class Dragon extends SpriteComponent {
     if (y == null || maxY == null) {
       return false;
     }
-    bool destroy = y >= maxY + DRAGON_SIZE / 2;
+    bool destroy = false;
     if (destroy) {
       gameOver = true;
 

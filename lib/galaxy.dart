@@ -23,11 +23,12 @@ class Galaxy extends BaseGame {
     String text = points.toString();
     TextPainter p = Flame.util
         .text(text, color: Colors.white, fontSize: 48.0, fontFamily: 'Halo');
+
     String over = "Game over";
     TextPainter overGame = Flame.util
         .text(over, color: Colors.white, fontSize: 48.0, fontFamily: 'Halo');
     gameOver
-        ? overGame.paint(canvas, Offset(size.width / 5, size.height / 2))
+        ? overGame.paint(canvas, Offset(size.width / 5, size.height /2))
         : p.paint(canvas,
             new Offset(size.width - p.width - 10, size.height - p.height - 10));
   }
@@ -41,7 +42,8 @@ class Galaxy extends BaseGame {
 
       for (int i = 1; i <= DRAGON_SIZE / 7; i++) {
         for (int j = 0; j < i; ++j) {
-          dragon = new Dragon(dimenstions, i, j);
+          int startOfScreen = -j+(2*size.width/DRAGON_SIZE).round();
+          dragon = new Dragon(dimenstions, i, startOfScreen);
           dragonList.add(dragon);
           add(dragon);
         }
