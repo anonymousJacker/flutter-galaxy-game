@@ -53,6 +53,9 @@ flutter:
     - assets/images/gun.png
     - assets/images/dragon.png
     - assets/images/fire.png
+    - assets/images/fireball.png
+    - assets/images/bub.png
+    - assets/images/sea.jpg
     - assets/images/background.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

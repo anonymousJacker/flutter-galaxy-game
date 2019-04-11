@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flame/components/component.dart';
+import 'package:galaxygame/explosion.dart';
 import 'package:galaxygame/main.dart';
 
 class Dragon extends SpriteComponent {
@@ -9,18 +10,21 @@ class Dragon extends SpriteComponent {
   int ypostion;
   bool explode = false;
   double maxY;
-
-  Dragon(this.dimenstions, this.postion, this.ypostion)
-      : super.square(DRAGON_SIZE, 'bubble.jpeg');
-
+  double bubSize ;
+ 
+Dragon(this.dimenstions, this.postion, this.ypostion, this.bubSize)
+      : super.square(bubSize, 'bub.png');
+void setBubSize (double bub){
+  bubSize = bub;
+}
   @override
   void update(double t) {
-    y -= gameOver ? 0 : (t * DRAGONSPEED);
+    y -= (t * DRAGONSPEED);
   }
 
   @override
   bool destroy() {
-    if (explode) {
+      if (explode) {
       return true;
     }
     if (y == null || maxY == null) {

@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flame/flame.dart';
@@ -9,6 +10,7 @@ import 'package:galaxygame/main.dart';
 
 class Galaxy extends BaseGame {
   bool checkOnce = true;
+  Random random ;
 
   List<Dragon> dragonList = <Dragon>[];
   List<Bullet> bulletList = <Bullet>[];
@@ -37,17 +39,19 @@ class Galaxy extends BaseGame {
   @override
   void update(double t) {
     creationTimer += t;
-    if (creationTimer >= 4) {
+    if (creationTimer >= 1) {
+      random= new Random();
       creationTimer = 0.0;
+          int startOfScreen = (2*size.width/DRAGON_SIZE).round();
+          double bubSize = random.nextDouble()*240;
 
-      for (int i = 1; i <= DRAGON_SIZE / 7; i++) {
-        for (int j = 0; j < i; ++j) {
-          int startOfScreen = -j+(2*size.width/DRAGON_SIZE).round();
-          dragon = new Dragon(dimenstions, i, startOfScreen);
+          print(bubSize);
+          int i =  random.nextInt(3);
+          print(i);
+          dragon = new Dragon(dimenstions,i, startOfScreen,bubSize);
           dragonList.add(dragon);
           add(dragon);
-        }
-      }
+        
     }
     super.update(t);
   }

@@ -1,7 +1,4 @@
 import 'package:flutter/gestures.dart';
-
-import 'package:flame/components/component.dart';
-import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flame/flame.dart';
@@ -11,7 +8,7 @@ import 'package:galaxygame/galaxy.dart';
 
 bool gameOver = false;
 const DRAGONSPEED = 30.0;
-const BULLETSPEED = 60.0;
+const BULLETSPEED = 260.0;
 const DRAGON_SIZE = 240.0;
 const BULLET_SIZE = 20.0;
 
@@ -28,7 +25,7 @@ double touchPositionDy = 0.0;
 
 main() async {
   Flame.audio.disableLog();
-  Flame.images.loadAll(['fire.png', 'bubble.jpeg', 'gun.png', 'bullet.png']);
+  Flame.images.loadAll(['fire.png', 'bub.png', 'gun.png', 'bullet.png']);
 
   var dimensions = await Flame.util.initialDimensions();
 
