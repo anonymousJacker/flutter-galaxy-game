@@ -13,7 +13,7 @@ class Dragon extends SpriteComponent {
   double bubSize ;
  
 Dragon(this.dimenstions, this.postion, this.ypostion, this.bubSize)
-      : super.square(bubSize, 'bub.png');
+      : super.square(bubSize, 'milenario.png');
 void setBubSize (double bub){
   bubSize = bub;
 }
@@ -24,20 +24,16 @@ void setBubSize (double bub){
 
   @override
   bool destroy() {
-      if (explode) {
+    if(y <0){//se sale de la pantalla
+      return true;
+    }
+    if (explode) {
       return true;
     }
     if (y == null || maxY == null) {
       return false;
     }
-    bool destroy = false;
-    if (destroy) {
-      gameOver = true;
-
-      print("Game over");
-      return true;
-    }
-    return destroy;
+    return false;
   }
 
   @override

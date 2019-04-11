@@ -11,11 +11,17 @@ class Bullet extends SpriteComponent {
   List<Dragon> dragonList = <Dragon>[];
   List<Bullet> bulletList = <Bullet>[];
   Bullet(this.dragonList, this.bulletList)
-      : super.square(BULLET_SIZE, 'gun.png');
+      : super.square(BULLET_SIZE, 'fireball.png');
 
   @override
   void update(double t) {
-    y -= gameOver ? 0 : t * BULLETSPEED;
+    /*if(y <0){
+      bullet.explode = true;
+    }
+    else{
+      y -=  t * BULLETSPEED;
+    }*/
+    y -=  t * BULLETSPEED;
 
     if (dragonList.isNotEmpty)
       dragonList.forEach((dragon) {
@@ -25,7 +31,6 @@ class Bullet extends SpriteComponent {
         if (remove) {
           points += 1;
           dragon.explode = true;
-          bullet.explode = true;
           dragonList.remove(dragon);
           game.add(new Explosion(dragon));
         }

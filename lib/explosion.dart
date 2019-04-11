@@ -3,10 +3,10 @@ import 'package:galaxygame/dragon.dart';
 import 'package:galaxygame/main.dart';
 
 class Explosion extends AnimationComponent {
-  static const TIME = 0.75;
+  static const TIME = 3.75;
 
   Explosion(Dragon dragon)
-      : super.sequenced(DRAGON_SIZE, DRAGON_SIZE, 'explosion-4.png', 7,
+      : super.sequenced(DRAGON_SIZE, DRAGON_SIZE, 'explosion-0.png', 7,
             textureWidth: 31.0, textureHeight: 31.0) {
     this.x = dragon.x;
     this.y = dragon.y;
