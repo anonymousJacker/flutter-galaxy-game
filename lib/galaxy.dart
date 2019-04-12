@@ -15,7 +15,7 @@ class Galaxy extends BaseGame {
   List<Dragon> dragonList = <Dragon>[];
   List<Bullet> bulletList = <Bullet>[];
   Size dimenstions;
-
+  List<String> images = ['milenario.png', 'tiefighter.png', 'estrellamuerte2.png' ];
   Galaxy(this.dimenstions);
 
   @override
@@ -25,10 +25,6 @@ class Galaxy extends BaseGame {
     String text = points.toString();
     TextPainter p = Flame.util
         .text(text, color: Colors.white, fontSize: 48.0, fontFamily: 'Halo');
-
-    String over = "Game over";
-    TextPainter overGame = Flame.util
-        .text(over, color: Colors.white, fontSize: 48.0, fontFamily: 'Halo');
   }
 
   double creationTimer = 0.0;
@@ -41,7 +37,9 @@ class Galaxy extends BaseGame {
           int startOfScreen = (2*size.width/DRAGON_SIZE).round();
           double bubSize = random.nextDouble()*240;
           int i =  random.nextInt(3);
-          dragon = new Dragon(dimenstions,i, startOfScreen,bubSize);
+          int j = random.nextInt(images.length);
+          print(images.length);
+          dragon = new Dragon(dimenstions,i, startOfScreen,bubSize,images[j]);
           dragonList.add(dragon);
           add(dragon);
         

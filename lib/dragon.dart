@@ -1,19 +1,20 @@
 import 'dart:ui';
 
 import 'package:flame/components/component.dart';
-import 'package:galaxygame/explosion.dart';
 import 'package:galaxygame/main.dart';
 
 class Dragon extends SpriteComponent {
   Size dimenstions;
+  String image;
   int postion;
   int ypostion;
   bool explode = false;
   double maxY;
   double bubSize ;
  
-Dragon(this.dimenstions, this.postion, this.ypostion, this.bubSize)
-      : super.square(bubSize, 'milenario.png');
+Dragon(this.dimenstions, this.postion, this.ypostion, this.bubSize, this.image)
+      : super.square(bubSize, image);
+
 void setBubSize (double bub){
   bubSize = bub;
 }

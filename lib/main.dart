@@ -24,7 +24,7 @@ double touchPositionDy = 0.0;
 
 main() async {
   Flame.audio.disableLog();
-  Flame.images.loadAll(['fire.png', 'bub.png', 'fireball.png', 'milenario.png']);
+  Flame.images.loadAll(['fire.png', 'bub.png', 'fireball.png', 'milenario.png', 'dragon.png','space.jpg', 'tiefighter.png','estrellamuerte2.png']);
 
   var dimensions = await Flame.util.initialDimensions();
 
