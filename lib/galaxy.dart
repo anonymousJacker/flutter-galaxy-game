@@ -10,12 +10,16 @@ import 'package:galaxygame/main.dart';
 
 class Galaxy extends BaseGame {
   bool checkOnce = true;
-  Random random ;
+  Random random;
 
   List<Dragon> dragonList = <Dragon>[];
   List<Bullet> bulletList = <Bullet>[];
   Size dimenstions;
-  List<String> images = ['milenario.png', 'tiefighter.png', 'estrellamuerte2.png' ];
+  List<String> images = [
+    'milenario.png',
+    'tiefighter.png',
+    'estrellamuerte2.png'
+  ];
   Galaxy(this.dimenstions);
 
   @override
@@ -25,24 +29,26 @@ class Galaxy extends BaseGame {
     String text = points.toString();
     TextPainter p = Flame.util
         .text(text, color: Colors.white, fontSize: 48.0, fontFamily: 'Halo');
+    p.paint(canvas,
+        new Offset(size.width - p.width - 10, size.height - p.height - 10));
   }
 
   double creationTimer = 0.0;
   @override
   void update(double t) {
     creationTimer += t;
-    if (creationTimer >= 1) {
-      random= new Random();
+    if (creationTimer >= 0.5) {
+      random = new Random();
       creationTimer = 0.0;
-          int startOfScreen = (2*size.width/DRAGON_SIZE).round();
-          double bubSize = random.nextDouble()*240;
-          int i =  random.nextInt(3);
-          int j = random.nextInt(images.length);
-          print(images.length);
-          dragon = new Dragon(dimenstions,i, startOfScreen,bubSize,images[j]);
-          dragonList.add(dragon);
-          add(dragon);
-        
+      int startOfScreen = (2 * size.width / DRAGON_SIZE).round();
+      double bubSize = random.nextDouble() * 240;
+      int i = random.nextInt(3);
+      int j = random.nextInt(images.length);
+      print(images.length);
+      //0 is top of screen
+      dragon = new Dragon(dimenstions, i, 0, bubSize, images[j]);
+      dragonList.add(dragon);
+      add(dragon);
     }
     super.update(t);
   }

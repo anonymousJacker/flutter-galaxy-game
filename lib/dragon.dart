@@ -10,27 +10,30 @@ class Dragon extends SpriteComponent {
   int ypostion;
   bool explode = false;
   double maxY;
-  double bubSize ;
- 
-Dragon(this.dimenstions, this.postion, this.ypostion, this.bubSize, this.image)
+  double bubSize;
+
+  Dragon(
+      this.dimenstions, this.postion, this.ypostion, this.bubSize, this.image)
       : super.square(bubSize, image);
 
-void setBubSize (double bub){
-  bubSize = bub;
-}
+  void setBubSize(double bub) {
+    bubSize = bub;
+  }
+
   @override
   void update(double t) {
-    y -= (t * DRAGONSPEED);
+    y += (t * DRAGONSPEED);
   }
 
   @override
   bool destroy() {
-    if(y <0){//se sale de la pantalla
+    if (y >= maxY + DRAGON_SIZE / 2) {
+      //se sale de la pantalla
+      print("se sale de la pantalla");
+      points = 0;
       return true;
     }
-    if (explode) {
-      return true;
-    }
+
     if (y == null || maxY == null) {
       return false;
     }

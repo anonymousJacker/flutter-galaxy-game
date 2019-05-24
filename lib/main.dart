@@ -6,7 +6,7 @@ import 'package:galaxygame/bullet.dart';
 import 'package:galaxygame/dragon.dart';
 import 'package:galaxygame/galaxy.dart';
 
-const DRAGONSPEED = 30.0;
+const DRAGONSPEED = 120.0;
 const BULLETSPEED = 260.0;
 const DRAGON_SIZE = 240.0;
 const BULLET_SIZE = 50.0;
@@ -24,7 +24,16 @@ double touchPositionDy = 0.0;
 
 main() async {
   Flame.audio.disableLog();
-  Flame.images.loadAll(['fire.png', 'bub.png', 'fireball.png', 'milenario.png', 'dragon.png','space.jpg', 'tiefighter.png','estrellamuerte2.png']);
+  Flame.images.loadAll([
+    'fire.png',
+    'bub.png',
+    'fireball.png',
+    'milenario.png',
+    'dragon.png',
+    'space.jpg',
+    'tiefighter.png',
+    'estrellamuerte2.png'
+  ]);
 
   var dimensions = await Flame.util.initialDimensions();
 
