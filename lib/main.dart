@@ -30,7 +30,7 @@ main() async {
     'fireball.png',
     'milenario.png',
     'dragon.png',
-    'space.jpg',
+    'Galaxia_02.png',
     'tiefighter.png',
     'estrellamuerte2.png'
   ]);
@@ -43,7 +43,7 @@ main() async {
           body: Container(
     decoration: new BoxDecoration(
       image: new DecorationImage(
-        image: new AssetImage("assets/images/space.jpg"),
+        image: new AssetImage("assets/images/Galaxia_02.png"),
         fit: BoxFit.cover,
       ),
     ),
