@@ -34,8 +34,10 @@ class Galaxy extends BaseGame {
   }
 
   double creationTimer = 0.0;
+  double speedUpTimer = 0.0;
   @override
   void update(double t) {
+    speedUpTimer += t;
     creationTimer += t;
     if (creationTimer >= 0.5) {
       random = new Random();
@@ -44,11 +46,16 @@ class Galaxy extends BaseGame {
       double bubSize = random.nextDouble() * 240;
       int i = random.nextInt(3);
       int j = random.nextInt(images.length);
-      print(images.length);
       //0 is top of screen
       dragon = new Dragon(dimenstions, i, 0, bubSize, images[j]);
       dragonList.add(dragon);
       add(dragon);
+
+      if (speedUpTimer > 5) {
+        //increase velocity each 5 seconds
+        DragonSpeed *= 1.25;
+        speedUpTimer = 0;
+      }
     }
     super.update(t);
   }

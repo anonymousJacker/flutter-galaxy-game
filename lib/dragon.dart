@@ -20,9 +20,21 @@ class Dragon extends SpriteComponent {
     bubSize = bub;
   }
 
+  double resizeTime = 0.0;
   @override
   void update(double t) {
-    y += (t * DRAGONSPEED);
+    y += (t * DragonSpeed);
+    if (resizeTime < 1) {
+      height = this.dimenstions.height + 30 * t;
+      width = this.dimenstions.width + 30 * t;
+      print(height);
+      print(width);
+    } else if (resizeTime > 2) {
+      resizeTime = 0.0;
+    } else {
+      height = this.dimenstions.height - 30 * t;
+      width = this.dimenstions.width - 30 * t;
+    }
   }
 
   @override
@@ -30,6 +42,7 @@ class Dragon extends SpriteComponent {
     if (y >= maxY + DRAGON_SIZE / 2) {
       //se sale de la pantalla
       print("se sale de la pantalla");
+      DragonSpeed = 120;
       points = 0;
       return true;
     }
@@ -45,5 +58,6 @@ class Dragon extends SpriteComponent {
     this.x = (DRAGON_SIZE * postion);
     this.y = DRAGON_SIZE * ypostion;
     this.maxY = size.height;
+    this.dimenstions = Size(width, height);
   }
 }
