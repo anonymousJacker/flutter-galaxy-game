@@ -21,20 +21,27 @@ class Bullet extends SpriteComponent {
     else{
       y -=  t * BULLETSPEED;
     }*/
-    y -=  t * BULLETSPEED;
+    y -= t * BULLETSPEED;
 
-    if (dragonList.isNotEmpty)
+//no se puede borrar en el propio forEach por temas de concurrencia
+    List<Dragon> toRemove = List<Dragon>();
+    if (dragonList.isNotEmpty) {
       dragonList.forEach((dragon) {
         bool remove = this.toRect().contains(dragon.toRect().bottomCenter) ||
             this.toRect().contains(dragon.toRect().bottomLeft) ||
             this.toRect().contains(dragon.toRect().bottomRight);
         if (remove) {
+          print("vamos a intentar borrar "+dragon.toString()); 
+          toRemove.add(dragon);
           points += 1;
           dragon.explode = true;
-          dragonList.remove(dragon);
+          bullet.explode = true;
           game.add(new Explosion(dragon));
         }
       });
+      dragonList.removeWhere( (dragon) => toRemove.contains(dragon));
+     
+    }
   }
 
   @override

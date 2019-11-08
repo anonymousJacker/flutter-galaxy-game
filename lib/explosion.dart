@@ -14,6 +14,7 @@ class Explosion extends AnimationComponent {
   }
 
   bool destroy() {
+    dragon.destroy();
     return this.animation.isLastFrame;
   }
 }

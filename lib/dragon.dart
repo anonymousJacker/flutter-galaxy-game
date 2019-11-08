@@ -23,12 +23,11 @@ class Dragon extends SpriteComponent {
   double resizeTime = 0.0;
   @override
   void update(double t) {
-    y += (t * DragonSpeed);
+    y += (t * DRAGON_SPEED);
     if (resizeTime < 1) {
       height = this.dimenstions.height + 30 * t;
       width = this.dimenstions.width + 30 * t;
-      print(height);
-      print(width);
+     
     } else if (resizeTime > 2) {
       resizeTime = 0.0;
     } else {
@@ -40,9 +39,7 @@ class Dragon extends SpriteComponent {
   @override
   bool destroy() {
     if (y >= maxY + DRAGON_SIZE / 2) {
-      //se sale de la pantalla
-      print("se sale de la pantalla");
-      DragonSpeed = 120;
+      //se sale de la pantalla 
       points = 0;
       return true;
     }

@@ -9,7 +9,7 @@ import 'package:galaxygame/galaxy.dart';
 const BULLETSPEED = 260.0;
 const DRAGON_SIZE = 240.0;
 const BULLET_SIZE = 50.0;
-double DragonSpeed = 120.0;
+double DRAGON_SPEED = 20.0;
 var points = 0;
 Dragon dragon;
 Bullet bullet;

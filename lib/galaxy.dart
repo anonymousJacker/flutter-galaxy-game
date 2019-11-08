@@ -53,7 +53,7 @@ class Galaxy extends BaseGame {
 
       if (speedUpTimer > 5) {
         //increase velocity each 5 seconds
-        DragonSpeed *= 1.25;
+        DRAGON_SPEED *= 1.25;
         speedUpTimer = 0;
       }
     }
